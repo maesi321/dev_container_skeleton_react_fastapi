@@ -3,9 +3,9 @@
 {
     "name": "frontend",
     "dockerComposeFile": "../../docker/dev/docker-compose.yml",
-    "service": "frontend",
-    "workspaceFolder": "/project/src_frontend",
-	"overrideCommand": false,
+    "service": "frontend", // which service to be started from docker-compose file
+    "workspaceFolder": "/project/src_frontend", // frontend and backend are in a mono-repo, therefore limit workspace to frontend
+	"overrideCommand": false, // start command is specified in docker file
 
 	"customizations": {
 		"vscode": {

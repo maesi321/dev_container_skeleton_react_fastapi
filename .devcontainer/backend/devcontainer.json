@@ -3,9 +3,9 @@
 {
     "name": "backend",
     "dockerComposeFile": "../../docker/dev/docker-compose.yml",
-    "service": "backend",
-    "workspaceFolder": "/project/src_backend",
-	"overrideCommand": false,
+    "service": "backend", // which service to be started from docker-compose file
+    "workspaceFolder": "/project/src_backend", // frontend and backend are in a mono-repo, therefore limit workspace to backend
+	"overrideCommand": false, // start command is specified in docker file
 
 	"customizations": {
 		"vscode": {
@@ -14,11 +14,10 @@
 			]
 		},
 		"settings": {
+			// to enable python extension the path to the interpreter is specified here
 			"python.pythonPath": "/opt/.venv/bin/python",
 			"python.defaultInterpreterPath": "/opt/.venv/bin/python",
 			"python.terminal.activateEnvironment": true
-			
 		}
-
 	}
 }
