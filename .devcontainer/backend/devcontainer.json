@@ -1,0 +1,24 @@
+// main configuration is done in docker-compose and dockerfile
+// here are only the definitions relevant for VS Code
+{
+    "name": "backend",
+    "dockerComposeFile": "../../docker/dev/docker-compose.yml",
+    "service": "backend",
+    "workspaceFolder": "/project/src_backend",
+	"overrideCommand": false,
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python"
+			]
+		},
+		"settings": {
+			"python.pythonPath": "/opt/.venv/bin/python",
+			"python.defaultInterpreterPath": "/opt/.venv/bin/python",
+			"python.terminal.activateEnvironment": true
+			
+		}
+
+	}
+}

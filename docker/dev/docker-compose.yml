@@ -1,0 +1,24 @@
+services:
+  frontend:
+    container_name: frontend
+    # Mounting point of whole mono repo folder
+    # the .git-folder needs to be included to enable git functionalities
+    volumes:
+      - ../../:/project:cached
+    build: 
+      context: .
+      dockerfile: frontend.dockerfile
+    ports:
+      - 3000:3000
+
+  backend:
+    container_name: backend
+    # Mounting point of whole mono repo folder
+    # the .git-folder needs to be included to enable git functionalities
+    volumes:
+      - ../../:/project:cached
+    build: 
+      context: .
+      dockerfile: backend.dockerfile
+    ports:
+      - 8000:8000
