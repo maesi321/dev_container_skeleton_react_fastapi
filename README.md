@@ -1,10 +1,10 @@
 # Dev container skeleton with React and FastAPI
-A skeleton project for developing React frontend and FastAPI backend with VS Code dev cointainer.
+A skeleton project for the development of React frontend and FastAPI backend with VS Code Dev Container.
 
 ## Motivation
-The motivation for this project was to learn about VS Code dev container and Docker. Maybe it will help someone as a stepping stone for their own project.
+The motivation for this project was to learn about VS Code Dev Container and Docker. Maybe it will help someone as a stepping stone for their own project.
 
-This project is far from being ready for production. Things like .env files, authentication, security, etc. are missing. There is also a lot of room for improvement in terms of performance.
+This project is far from being production ready. It lacks things like .env files, authentication, security, etc. There is also a lot of room for improvement in terms of performance.
 
 ## Resources
 - [Dockerfile reference](https://docs.docker.com/reference/dockerfile/)
@@ -14,32 +14,32 @@ This project is far from being ready for production. Things like .env files, aut
 - [FastAPI quick start](https://fastapi.tiangolo.com/tutorial/)
 
 ## Setup
-- Docker installed -> [Docker home page](https://www.docker.com/get-started/)
-- (optional) grant Docker more resources to have a smooth dev experience
-- VS Code installed -> [VS Code home page](https://code.visualstudio.com/)
-- VS Code extension "Dev Containers" installed -> [Marketplace page](https://code.visualstudio.com/)
-- this repo downloaded or cloned
+- Docker installed -> [Docker homepage](https://www.docker.com/get-started/)
+- (optional) grant Docker more resources to enable smooth development
+- VS Code installed -> [VS Code homepage](https://code.visualstudio.com/)
+- VS Code extension "Dev Containers" installed -> [Marketplace page](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- downloaded or cloned this repo
 
 ## How to start
 - open this repo in VS Code
-- execute "Dev Containers: Reopen in Container"
+- run "Dev Containers: Reopen in Container"
 ![alt text](/docs/assets/image.png)
 - the first opening takes a few minutes
 - happy coding
 
 ## Encountered pitfalls
-### Git functionalities in monorepo and VS Code workspace
-To get Git working inside the container the whole monorepo needs to be mounted. With 'devcontainer.json' the visibility of different parts of the project can be defined with the property 'workspaceFolder'.
+### Git functionalities in the monorepo and VS Code workspace
+For Git to work within the container, the entire monorepo must be mounted. With "devcontainer.json" the visibility of different parts of the project can be defined with the property "workspaceFolder".
 
-### Container shutsdown after start
-If a container does not have a service running it shuts itself down automatically after finishing the last instruction. To prevent this something like 'CMD ["sh", "-c", "sleep infinity"]' can be used. In the case of this skeleton project it was not neccessary, the frontend and backend had a service running.
+### Container shutdown after start
+If a container has no service running, it shuts down automatically after the last command has finished. To prevent this, something like 'CMD ["sh", "-c", "sleep infinity"]' can be used. In the case of this skeleton project, this was not necessary as both the frontend and the backend had a service running.
 
-### Pylance does not detect python interpreter
-If Pylance does not detect the correct interpreter VS Code can be pointed to the right one within 'devcontainer.json' and property 'settings'.
+### Pylance does not recognise the Python interpreter
+If Pylance does not recognise the correct interpreter, VS code in 'devcontainer.json' and the 'settings' property can be referenced to the correct interpreter.
 
-### FastAPI backend not reachable from outside container
-With the CLI command 'fastapi dev' the IP address is per default set to '127.0.0.1'. To work within Docker the IP address needs to be set to '0.0.0.0'.
+### FastAPI backend not accessible from outside the container
+With the CLI command 'fastapi dev' the IP address is set to '127.0.0.1' by default. To work within Docker, the IP address must be set to '0.0.0.0'.
 
 ### FastAPI backend denies access with something like 'No "Access-Control-Allow-Origin"'
-CORS needs to be enabled -> [CORS (Cross-Origin Resource Sharing)](https://fastapi.tiangolo.com/tutorial/cors/).
+CORS must be enabled -> [CORS (Cross-Origin Resource Sharing)](https://fastapi.tiangolo.com/tutorial/cors/).
 
