@@ -2,7 +2,7 @@
 // here are only the definitions relevant for VS Code
 {
     "name": "frontend",
-    "dockerComposeFile": "../../docker/dev/docker-compose.yml",
+    "dockerComposeFile": "../../docker/dev/frontend_docker-compose.yml",
     "service": "frontend", // which service to be started from docker-compose file
     "workspaceFolder": "/project/src_frontend", // frontend and backend are in a mono-repo, therefore limit workspace to frontend
 	"overrideCommand": false, // start command is specified in docker file
