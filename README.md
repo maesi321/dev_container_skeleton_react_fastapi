@@ -13,6 +13,16 @@ This project is far from being production ready. It lacks things like .env files
 - [React quick start](https://react.dev/learn)
 - [FastAPI quick start](https://fastapi.tiangolo.com/tutorial/)
 
+## Mental model
+The repo is a mono-repo and consists of following parts:
+- src_backend: complete backend service with code and resources
+- src_frontend: complete frontend service with code and resources
+- docker, .devcontainer: defintion of dev-container workflow
+- docs: space for project documentation (general, frontend, backend, etc)
+
+The code is mounted via volume into the container. The container itself provides a development environment with the required dependency installed. 
+When the dev container is started via VS Code the service itself needs to be started manually, the container self runs infinitly as long as IDE is running.
+
 ## Setup
 - Docker installed -> [Docker homepage](https://www.docker.com/get-started/)
 - (optional) grant Docker more resources to enable smooth development
@@ -25,7 +35,7 @@ This project is far from being production ready. It lacks things like .env files
 - run "Dev Containers: Reopen in Container"
 ![alt text](/docs/assets/image.png)
 - the first opening takes a few minutes
-- happy coding
+- happy coding (the service working on needs to be started manually)
 
 ## Encountered pitfalls
 ### Git functionalities in the monorepo and VS Code workspace
@@ -43,3 +53,6 @@ With the CLI command 'fastapi dev' the IP address is set to '127.0.0.1' by defau
 ### FastAPI backend denies access with something like 'No "Access-Control-Allow-Origin"'
 CORS must be enabled -> [CORS (Cross-Origin Resource Sharing)](https://fastapi.tiangolo.com/tutorial/cors/).
 
+### Service is work-in-progress and does not compile
+The first iteration did start the service currently working on when starting the dev-container. If the code results in a compile error
+the container would shut down, thus it could not be worked on the code. The solution was to start the service manually instead. To archieve this the docker-compose inheritance mechanism 'extend' is used to create frontend or backend specific startups.
