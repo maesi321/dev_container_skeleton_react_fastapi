@@ -1,0 +1,16 @@
+# docker-compose definition for frontend dev container
+services:
+
+  frontend:
+    extends:
+      file: docker-compose.yml
+      service: frontend
+    # overwrittes base docker-file start command
+    # service needs to be started explicit inside of dev-container
+    command: [ "sh", "-c", "cd /project/src_frontend && npm install && sleep infinity" ]
+
+  # include of backend service
+  backend:
+    extends:
+      file: docker-compose.yml
+      service: backend

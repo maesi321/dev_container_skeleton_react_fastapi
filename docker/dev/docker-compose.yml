@@ -1,4 +1,6 @@
+# base docker-compose defition with all settings
 services:
+
   frontend:
     container_name: frontend
     # Mounting point of whole mono repo folder
@@ -10,6 +12,8 @@ services:
       dockerfile: frontend.dockerfile
     ports:
       - 3000:3000
+    # start of server
+    command: ["sh", "-c", "cd /project/src_frontend && npm install && npm start"]
 
   backend:
     container_name: backend
@@ -22,3 +26,7 @@ services:
       dockerfile: backend.dockerfile
     ports:
       - 8000:8000
+    # start of server    
+    # explicit defined host as '0.0.0.0' for docker communication
+    command: ["sh", "-c", "cd /project/src_backend && fastapi dev --host 0.0.0.0 --port 8000"]
+
