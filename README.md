@@ -13,6 +13,9 @@ This project is far from being production ready. It lacks things like .env files
 - [React quick start](https://react.dev/learn)
 - [FastAPI quick start](https://fastapi.tiangolo.com/tutorial/)
 
+## Other skeletons
+- [Flutter and Spring](https://github.com/maesi321/dev_container_skeleton_flutter_spring)
+
 ## Mental model
 The repo is a mono-repo and consists of following parts:
 - src_backend: complete backend service with code and resources
