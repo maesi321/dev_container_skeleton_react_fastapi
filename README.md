@@ -15,6 +15,7 @@ This project is far from being production ready. It lacks things like .env files
 
 ## Other skeletons
 - [Flutter and Spring](https://github.com/maesi321/dev_container_skeleton_flutter_spring)
+- [LaTex](https://github.com/maesi321/dev_container_skeleton_latex)
 
 ## Mental model
 The repo is a mono-repo and consists of following parts:
