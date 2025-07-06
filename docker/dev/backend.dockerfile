@@ -1,17 +1,16 @@
 FROM ubuntu:latest
 
-# update
+# install linux packages
+# - basic tools
+# - python runtime
+# - cleanup
 RUN apt-get update -y && \
-    apt-get upgrade -y
-
-# install linux dependencies
-RUN apt-get update -y && \ 
+    apt-get upgrade -y && \ 
     apt-get install -y \
-    git \
-    curl \
-    python3 \
-    python3-pip \
-    python3-venv
+    git curl \
+    python3 python3-pip python3-venv && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # create python venv
 RUN python3 -m venv /opt/.venv

@@ -1,12 +1,13 @@
 FROM ubuntu:latest
 
-# update
+# install linux packages
+# - basic tools
+# - react dependencies
+# - cleanup
 RUN apt-get update -y && \
-    apt-get upgrade -y
-
-# install linux dependencies
-RUN apt-get update -y && \ 
+    apt-get upgrade -y && \ 
     apt-get install -y \
-    git \
-    curl \
-    npm
+    git curl \
+    npm && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
